@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wi-Fi Signal Strength</title>
+</head>
+<body>
+    <h1>Wi-Fi Signal Strength</h1>
+    <h2>Available Networks</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Network (SSID)</th>
+                <th>RSSI (dBm)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for network in network_data %}
+            <tr>
+                <td>{{ network.ssid }}</td>
+                <td>{{ network.rssi }} dBm</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Average Signal Strength by Network</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Network (SSID)</th>
+                <th>Average RSSI (dBm)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ssid, avg_rssi in avg_rssi_data.items %}
+            <tr>
+                <td>{{ ssid }}</td>
+                <td>{{ avg_rssi }} dBm</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
